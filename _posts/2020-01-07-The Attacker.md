@@ -53,3 +53,8 @@ Exploit an exposed software service. e.g. Morris Worm
 Escalating privileges.  
 
 ### Outbound Access:  
+Someone from inside the network can connect to outside but the network is not accessible from the outside.  
+So attackers need an inside user to connect to the outside. e.g. e-mail.  
+
+Email Attacks  
+Three basic approach: attackments, attacking the e-mail program, and malicious links.
