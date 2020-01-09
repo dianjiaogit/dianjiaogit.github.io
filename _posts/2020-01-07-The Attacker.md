@@ -28,7 +28,7 @@ Stage 5: Exfiltration is the retrieval of wanted data from the target network.
 Stage 6: Detection occurs when an operation is exposed to the target.
 
 -------------------------------------------------------  
-\\
+
 ## **Principle of Access**:  
 There is always someone with legitimate access and a means to use it.  
 
