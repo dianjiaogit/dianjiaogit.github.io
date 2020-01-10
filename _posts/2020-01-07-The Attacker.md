@@ -56,5 +56,14 @@ Escalating privileges.
 Someone from inside the network can connect to outside but the network is not accessible from the outside.  
 So attackers need an inside user to connect to the outside. e.g. e-mail.  
 
-Email Attacks  
-Three basic approach: attackments, attacking the e-mail program, and malicious links.
+### Email Attacks  
+Three basic approach: attachments, attacking the e-mail program, and malicious links.
+
+### Attachments  
+First Generation Attachment: Executable program, install something in the background to grant access to the attacker. Simple, direct and effective.  
+Second Generation Attachment: Documents that contained the ability to run code. Send a copy to other e-mail addresses in the address book. Because of the "macro" feature of Microsoft Office.  
+Third Generation Attachment: Programs that do not seem like programs. Esoteric extensions e.g. .chm or .hta. E-mail filter updated to catch them.  
+Current Generation Attachment: Third-party application-specific documents, e.g. .doc, .xls, .pdf, .zip... use vulnerabilities of the application to execute the code.  
+
+### Attacking the e-mail program  
+Ideal Attack. Send specially crafted e-mail, corrupt the e-mail program, execute attacker-supplied code. Only need the user to preview or view the e-mail. Does not need the user to open the attachment. 
