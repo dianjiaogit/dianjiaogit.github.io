@@ -56,7 +56,7 @@ Escalating privileges.
 Someone from inside the network can connect to outside but the network is not accessible from the outside.  
 So attackers need an inside user to connect to the outside. e.g. e-mail.  
 
-### Email Attacks  
+## Email Attacks  
 Three basic approach: attachments, attacking the e-mail program, and malicious links.
 
 ### Attachments  
@@ -66,4 +66,18 @@ Third Generation Attachment: Programs that do not seem like programs. Esoteric e
 Current Generation Attachment: Third-party application-specific documents, e.g. .doc, .xls, .pdf, .zip... use vulnerabilities of the application to execute the code.  
 
 ### Attacking the e-mail program  
-Ideal Attack. Send specially crafted e-mail, corrupt the e-mail program, execute attacker-supplied code. Only need the user to preview or view the e-mail. Does not need the user to open the attachment. 
+Ideal Attack. Send specially crafted e-mail, corrupt the e-mail program, execute attacker-supplied code. Only need the user to preview or view the e-mail. Does not need the user to open the attachment.  
+
+### Malicious links  
+Links bring the user to specifically designed websites to leverage vulnerabilities in web browsers or plug-ins.  
+
+## Website Hijack Attacks  
+Commandeer legitimate sites that the attacker knows or hopes a target user will visit. aka "Watering hole" attacks. The Attacker waits for the target to come to them. Same result as e-mail link-based attack except it does not need e-mail to direct the user.
+
+1. The Attacker takes over and replaces the content of a popular website with malicious code.  
+2. Use a cross-site-scripting attack (XSS). The Attacker uploads code that the website then displays to other users. These sites allow users to post information or comments.  
+3. Avoid commandeering the website itself, hijack the domain name. Hack the registrars, so the IP address from the DNS server will be different.  
+4. Use ad network instead of commandeering a website. As advertisements can be placed by anyone, including the attacker. Put malicious code into the ads.  
+5. Pornography, illegal software, or pirated movies that are tainted and posted for download. Hope users of the target network will open them.  
+
+## Other Attacks  
