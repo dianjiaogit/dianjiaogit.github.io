@@ -81,3 +81,4 @@ Commandeer legitimate sites that the attacker knows or hopes a target user will 
 5. Pornography, illegal software, or pirated movies that are tainted and posted for download. Hope users of the target network will open them.  
 
 ## Other Attacks  
+Malicious thumb drives  
