@@ -5,7 +5,7 @@ date:   2020-01-07 22:53:01 +0800
 categories: NetworkSecurity
 ---
 
-## **Principle of Humanity**:  
+# **Principle of Humanity**:  
 Computer Network Exploitation(CNE) is grounded in human nature.
 
 ## * **Life Cycle of an Operation**:
@@ -29,7 +29,7 @@ Stage 6: Detection occurs when an operation is exposed to the target.
 
 -------------------------------------------------------  
 
-## **Principle of Access**:  
+# **Principle of Access**:  
 There is always someone with legitimate access and a means to use it.  
 
 * Four basics types of connectivity:  
@@ -39,7 +39,7 @@ There is always someone with legitimate access and a means to use it.
 	- neither
 
 
-### Inbound Access:  
+## Inbound Access:  
 Someone from outside the network can connect into the network. e.g. public web, or restricted.  
 Access control: "know", "have" and "virtual location".
 
@@ -52,7 +52,7 @@ Attacking method:
 Exploit an exposed software service. e.g. Morris Worm  
 Escalating privileges.  
 
-### Outbound Access:  
+## Outbound Access:  
 Someone from inside the network can connect to outside but the network is not accessible from the outside.  
 So attackers need an inside user to connect to the outside. e.g. e-mail.  
 
@@ -82,3 +82,33 @@ Commandeer legitimate sites that the attacker knows or hopes a target user will 
 
 ## Other Attacks  
 Malicious thumb drives  
+Attack other network that the laptops connect to  
+Wireless access  
+Attack from smartphones  
+Social engineering  
+Physical access attack  
+...  
+
+## Circumventing Outbound Restrictions  
+How to restrict access:  
+1. Software, such as parental control software, Kaspersky and McAffee  
+Attacker need user to "allow" or attack the software directly.
+2. Software or hardware on the network, such as firewall or proxy sercer.  
+Must gain access to the network device itself (but difficult). Or Establish a command and control channel into the network (but need circumventing the device first). Or Establish outbound connections via allowed network protocols (Easier).  
+
+Attacker's challenge: lecerage initial execution to circumvent host-based and network-based restrictions and establish command and control.  
+
+## Bidirectional Access  
+Some types of connections are allowed in and others allowed out. Each direction may have its own set of access controls, restictions and monitoring.  
+
+The attacker follows the path of least resistance, mixes and matches approaches for the greatest effect.  
+
+## No Outside Access  
+A network with no outside connectivity is commonly called an isolated network or an "air-gapped" network. This network is physically separated from the Internet.  
+
+The most secure network configuration possible to protect against outsider threats and the most inconvenient for sharing information or administering.  
+
+Attacker must breach physical security or trick, cajole, bribe, or blakmail users into doing it for them.  
+
+Air gap did not prevent the Stuxnet worm.  
+
