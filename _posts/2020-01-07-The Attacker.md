@@ -5,7 +5,7 @@ date:   2020-01-07 22:53:01 +0800
 categories: NetworkSecurity
 ---
 
-# **Principle of Humanity**:  
+# Principle of Humanity:  
 Computer Network Exploitation(CNE) is grounded in human nature.
 
 ## * **Life Cycle of an Operation**:
@@ -29,7 +29,7 @@ Stage 6: Detection occurs when an operation is exposed to the target.
 
 -------------------------------------------------------  
 
-# **Principle of Access**:  
+# Principle of Access:  
 There is always someone with legitimate access and a means to use it.  
 
 * Four basics types of connectivity:  
@@ -112,3 +112,11 @@ Attacker must breach physical security or trick, cajole, bribe, or blakmail user
 
 Air gap did not prevent the Stuxnet worm.  
 
+Attacker must find a way to be, to corrupt, or to compromise an insider in order to reduce the problem of physical access to one of insider threat security.  
+
+# Principle of Economy  
+Ambitions will always exceed available resources. All ambitions are tempered by the constraints of reality.  
+
+* Time  
+  Targeting Capabilities
+  
