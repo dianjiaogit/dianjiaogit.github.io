@@ -118,5 +118,10 @@ Attacker must find a way to be, to corrupt, or to compromise an insider in order
 Ambitions will always exceed available resources. All ambitions are tempered by the constraints of reality.  
 
 * Time  
-  Targeting Capabilities
+  Targeting Capabilities (gathering and analyse)  
+  Exploitation Expertise
+  Networking Expertise  
+  Software Development Expertise  
+  Operational Expertise  
+  Operational Analysis Expertise  
   
