@@ -124,4 +124,5 @@ Ambitions will always exceed available resources. All ambitions are tempered by 
   Software Development Expertise  
   Operational Expertise  
   Operational Analysis Expertise  
-  
+  Technical Resources  
+
