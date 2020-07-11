@@ -42,8 +42,33 @@ minima:
 # - about.md
 
 # Build settings
+jekyll-archives:
+  enabled: all
+  enabled:
+    - categories
+  enabled:
+    - year
+    - month
+    - tags
+  layout: archive
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
+  layout: archive                  # _layouts/archive.html
+  layout: custom-archive-layout    # _layouts/custom-archive-layout.html
+  layouts:
+    year: year-archive
+    month: month-archive
+    day: day-archive
+    category: category-archive
+    tag: tag-archive
+
 theme: minima
 
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
+ - jekyll-archives
