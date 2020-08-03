@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "CACM 笔记 (July 2020)"
-date:   2020-07-13 23:24:01 +0800
+date:   2020-07-31 23:24:01 +0800
 categories: [Notes]
 ---
 
