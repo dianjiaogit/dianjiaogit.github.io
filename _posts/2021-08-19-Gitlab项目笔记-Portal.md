@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Gitlab项目笔记-portal"
+title:  "Portal - Gitlab项目笔记"
 date:   2021-8-19 00:15:39 +0800
-categories: [Git]
+categories: [工作]
 ---
 
 此文档是我在学习Gitlab项目portal时所做的笔记。  

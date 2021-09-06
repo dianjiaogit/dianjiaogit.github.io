@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Triage Report生成步骤"
+title:  "Triage Report - 生成步骤"
 date:   2021-8-19 00:16:35 +0800
 categories: [工作]
 ---

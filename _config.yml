@@ -40,8 +40,9 @@ minima:
 # this and add the path to the pages in order as they should show up
 header_pages:
  - todo.md
+ - work.md
  - about.md
- - categories.md
+# - categories.md
 
 # Build settings
 #jekyll-archives:
