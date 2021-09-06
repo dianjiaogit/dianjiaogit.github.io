@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /工作笔记/
+permalink: /work/
 title: 工作笔记
 ---
 
