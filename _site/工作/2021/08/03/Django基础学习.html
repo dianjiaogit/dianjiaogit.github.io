@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Django - 基础学习笔记 | 焦点的动力炉 Jiao Dian’s Power Plant</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Django - 基础学习笔记" />
+<meta name="author" content="dianjiaogit" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="此文档是我在阅读学习Django时所做的笔记。学习网站：https://docs.djangoproject.com/en/3.2/" />
+<meta property="og:description" content="此文档是我在阅读学习Django时所做的笔记。学习网站：https://docs.djangoproject.com/en/3.2/" />
+<link rel="canonical" href="http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html" />
+<meta property="og:site_name" content="焦点的动力炉 Jiao Dian’s Power Plant" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-03T00:15:39+08:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html","headline":"Django - 基础学习笔记","dateModified":"2021-08-03T00:15:39+08:00","datePublished":"2021-08-03T00:15:39+08:00","author":{"@type":"Person","name":"dianjiaogit"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html"},"description":"此文档是我在阅读学习Django时所做的笔记。学习网站：https://docs.djangoproject.com/en/3.2/","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="焦点的动力炉 | Jiao Dian's Power Plant" /><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+  
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">焦点的动力炉 | Jiao Dian&#39;s Power Plant</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/todo/">To-Do</a><a class="page-link" href="/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/">工作笔记</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Django - 基础学习笔记</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-08-03T00:15:39+08:00" itemprop="datePublished">Aug 3, 2021
+      </time>
+      <br>
+      <div class="post-categories">
+        
+        Categries: 
+        
+          <a href="/categories/#工作">工作</a>
+          
+        
+      </div></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>此文档是我在阅读学习Django时所做的笔记。学习网站：https://docs.djangoproject.com/en/3.2/</p>
+
+<h2 id="0-overview">0. Overview</h2>
+
+<p>Django是python的web开发框架，遵循MVC(model-view-controller)的设计模式，但在Django中通常称为MTV(model-template-views)。model是数据持久层，主要存放实体映射、实体关系以及实体的一些方法。template是表示层，主要是用来显示数据，Django的视图引擎可以将其渲染成HTML并显示。views是业务逻辑层，在Django中充当着链接model与template的桥梁，处理模型并向template提交数据，同时也接受template的请求和参数，完成相应的逻辑后提交模型修改。</p>
+
+<h3 id="views和url">Views和URL</h3>
+
+<p>Views是业务逻辑层，在Django里面views通常是一个的views.py模块，放在对应的包里。views.py里面是具体的逻辑函数，每一个函数对应着一个或多个模版，为了建立模版与视图的联系，还要有一定的路由机制，于是Django通常在根目录有一个路由程序urls.py。路由由patterns来创建，用正则表达式来描述，极大地提高了路由机制的灵活性。</p>
+
+<h3 id="模版template">模版(Template)</h3>
+
+<p>模版在Django中是显示数据的地方，通常为HTML格式，在模版中Django的处理逻辑要写在{\% \%}中，而要显示的变量要写在{{ }}中。Django的母板页可以用任何文档充当，前提是要用{\% block name \%}{\% endblock \%}声明要填充或替换的块，而使用时只需{\% extends 母版名字 \%}然后调用相应的块就可以了。</p>
+
+<h3 id="模型">模型</h3>
+
+<p>在setting.py 中的database的字典中配置数据库。配置完成后 使用manage.py startapp来创建app在models中编写python代码描述实体映射。models.py</p>
+
+<h2 id="1-创建初始项目">1. 创建初始项目</h2>
+
+<p>创建新的初始项目指令：<br />
+<code class="language-plaintext highlighter-rouge">$ django-admin startproject mysite</code></p>
+
+<p>初始项目的框架构成为：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysite/
+	manage.py  
+	mysite/
+		__init__.py
+		settings.py
+		urls.py
+		asgi.py
+		wsgi.py
+</code></pre></div></div>
+
+<p>其中，manage.py是命令行工具，用来和本项目交互和管理。<br />
+__init__.py用来表明本目录是python包。  <br />
+setting.py是配置文件，查看项目如何工作。<br />
+urls.py是URL声明，就像是网站的“目录”。<br />
+asgi.py是ASGI兼容的web服务器入口，用来运行项目。<br />
+wsgi.py是WSGI兼容的web服务器入口，用来运行项目。</p>
+
+<h2 id="2-启动服务器">2. 启动服务器</h2>
+
+<p>启动服务器的命令为：<br />
+<code class="language-plaintext highlighter-rouge">python3 manage.py runserver 0.0.0.0:8000</code><br />
+之后在浏览器输入服务器ip:127.0.0.1:8000,就可以显示了。</p>
+
+<p>用于开发的服务器在需要的情况下会对每一次的访问请求重新载入一遍 Python 代码。所以你不需要为了让修改的代码生效而频繁的重新启动服务器。然而，一些动作，比如添加新文件，将不会触发自动重新加载，这时你得自己手动重启服务器。</p>
+
+<h2 id="3-创建应用">3. 创建应用</h2>
+
+<p>创建应用的命令为：<br />
+<code class="language-plaintext highlighter-rouge">python manage.py startapp polls</code><br />
+应用的目录结构为：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>polls/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+</code></pre></div></div>
+
+<h2 id="3-添加视图文件">3. 添加视图文件</h2>
+
+<p>视图文件是在polls目录下的views.py文件。</p>
+
+<p>内容为：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
+</code></pre></div></div>
+
+<p>当视图文件的index function被调用时，网站会通过http回复string “Hello, world. You’re at the polls index.”。</p>
+
+<h2 id="4-修改url配置">4. 修改URL配置</h2>
+
+<p>在polls下创建一个urls.py，内容为：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+</code></pre></div></div>
+<p>目的是创建url映射到index.<br />
+然后在mysite/urls.py的urlpatterns插入一个include().</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('polls/', include('polls.urls')),
+    path('admin/', admin.site.urls),
+]
+</code></pre></div></div>
+<p>include()的设计理念是使其可以即插即用，在其他路径下，应用都能正常工作。</p>
+
+<p>path()参数： route, view, kwargs, name.  <br />
+route – 匹配url<br />
+view – 调用视图函数</p>
+
+<h2 id="5-数据库配置">5. 数据库配置</h2>
+
+<p>在mysite/settings.py中设置DATABASES ‘default’ ENGINE后端以及NAME数据库名称。还有USER, PASSWORD, HOST等等。<br />
+TIME_ZONE应设置为自己的时区。</p>
+
+<p>INSTALLED_APPS 默认包括了以下 Django 的自带应用：</p>
+<ul>
+  <li>django.contrib.admin – 管理员站点。</li>
+  <li>django.contrib.auth – 认证授权系统。</li>
+  <li>django.contrib.contenttypes – 内容类型框架。</li>
+  <li>django.contrib.sessions – 会话框架。</li>
+  <li>django.contrib.messages – 消息框架。</li>
+  <li>django.contrib.staticfiles – 管理静态文件的框架。</li>
+</ul>
+
+<p>我们可以通过<code class="language-plaintext highlighter-rouge">python manage.py migrate</code>来检查INSTALLED_APPS设置，为其中的每个应用创建需要的数据表，具体取决于mysite/settings.py设置文件和每个应用的数据库迁移文件。</p>
+
+<p>对于MySQL来说，输入<code class="language-plaintext highlighter-rouge">SHOW TABLES</code>可以看到Django创建了哪些表。</p>
+
+<h2 id="6-创建模型">6. 创建模型</h2>
+
+<p>模型在polls/models.py进行创建。这里我们创建两个模型：问题Question和选项Choice。<br />
+Question模型包括问题描述和发布时间。Choice模型有两个字段，选项描述和当前得票数。每个选项属于一个问题。</p>
+
+<p>模型被表示为django.db.models.Model类的子类。每个模型有许多类变量，它们都表示模型里的一个数据库字段。</p>
+
+<p>每个字段都是Field类的实例 - 比如，字符字段被表示为CharField，日期时间字段被表示为DateTimeField。这将告诉Django每个字段要处理的数据类型。</p>
+
+<p>每个 Field 类实例变量的名字（例如 question_text 或 pub_date ）也是字段名，所以最好使用对机器友好的格式。你将会在 Python 代码里使用它们，而数据库会将它们作为列名。</p>
+
+<p>定义某些 Field 类实例需要参数或者可选参数 default 。例如 CharField 需要一个 max_length 参数。这个参数的用处不止于用来定义数据库结构，也用于验证数据。</p>
+
+<p>使用 ForeignKey 定义了关系。告诉 Django，每个 Choice 对象都关联到一个 Question 对象。Django 支持所有常用的数据库关系：多对一、多对多和一对一。</p>
+
+<h2 id="7-激活模型">7. 激活模型</h2>
+
+<p>将polls安装进项目，在INSTALLED_APPS 中添加设置。因为 PollsConfig 类写在文件 polls/apps.py 中，所以它的点式路径是 ‘polls.apps.PollsConfig’。在文件 mysite/settings.py 中 INSTALLED_APPS 子项添加点式路径。</p>
+
+<p>通过运行<code class="language-plaintext highlighter-rouge">python manage.py makemigrations polls</code>， Django 会检测你对模型文件的修改（在这种情况下，你已经取得了新的），并且把修改的部分储存为一次迁移。<br />
+通过运行<code class="language-plaintext highlighter-rouge">python manage.py sqlmigrate polls 0001</code>， 我们会看到迁移命令会执行哪些 SQL 语句。</p>
+
+<p>改变模型需要这三步：</p>
+<ul>
+  <li>编辑 models.py 文件，改变模型。</li>
+  <li>运行 python manage.py makemigrations 为模型的改变生成迁移文件。</li>
+  <li>运行 python manage.py migrate 来应用数据库迁移。</li>
+</ul>
+
+<h2 id="8-使用api">8. 使用API</h2>
+
+<p>通过<code class="language-plaintext highlighter-rouge">python manage.py shell</code>来进入交互式Python命令行。manage.py 会设置 DJANGO_SETTINGS_MODULE 环境变量，这个变量会让 Django 根据 mysite/settings.py 文件来设置 Python 包的导入路径。</p>
+
+<p>all(), filter(), include(), exclude(), save(), add(), get(), delete(), count()……</p>
+
+<p>在models.py给模型增加 <strong>str</strong>() 能使其在命令行里使用更方便。</p>
+
+<h2 id="9-django管理页面">9. Django管理页面</h2>
+
+<p>通过<code class="language-plaintext highlighter-rouge">python manage.py createsuperuser</code>键入用户名，邮件地址和密码，创建一个能登录管理页面的用户。</p>
+
+<p>Django 的管理界面默认就是启用的。在’http://127.0.0.1:8000/admin/’ 可以看到管理员登录界面。</p>
+
+<p>在polls/admin.py中为Question对象设置一个后台接口。</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.contrib import admin
+
+from .models import Question
+
+admin.site.register(Question)
+</code></pre></div></div>
+
+<p>进入Question页面后，页面的底部提供了几个选项：</p>
+<ul>
+  <li>保存（Save） - 保存改变，然后返回对象列表。</li>
+  <li>保存并继续编辑（Save and continue editing） - 保存改变，然后重新载入当前对象的修改界面。</li>
+  <li>保存并新增（Save and add another） - 保存改变，然后添加一个新的空对象并载入修改界面。</li>
+  <li>删除（Delete） - 显示一个确认删除页面。</li>
+</ul>
+
+<h2 id="10-编写更多视图">10. 编写更多视图</h2>
+
+<p>首先，在你的 polls 目录里创建一个 templates 目录。Django 将会在这个目录里查找模板文件。</p>
+
+<p>你项目的 TEMPLATES 配置项描述了 Django 如何载入和渲染模板。默认的设置文件设置了 DjangoTemplates 后端，并将 APP_DIRS 设置成了 True。这一选项将会让 DjangoTemplates 在每个 INSTALLED_APPS 文件夹中寻找 “templates” 子目录。这就是为什么尽管我们没有像在第二部分中那样修改 DIRS 设置，Django 也能正确找到 polls 的模板位置的原因。</p>
+
+<p>在你刚刚创建的 templates 目录里，再创建一个目录 polls，然后在其中新建一个文件 index.html 。换句话说，你的模板文件的路径应该是 polls/templates/polls/index.html 。因为<code class="language-plaintext highlighter-rouge">app_directories</code> 模板加载器是通过上述描述的方法运行的，所以 Django 可以引用到 polls/index.html 这一模板了。</p>
+
+<p>然后在views中使用模板：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.http import HttpResponse
+from django.template import loader
+
+from .models import Question
+
+
+def index(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    template = loader.get_template('polls/index.html')
+    context = {
+        'latest_question_list': latest_question_list,
+    }
+    return HttpResponse(template.render(context, request))
+</code></pre></div></div>
+<p>render()是一个快捷函数。使用它可以不再需要导入 loader 和 HttpResponse 。不过如果你还有其他函数（比如说 detail, results, 和 vote ）需要用到它的话，就需要保持 HttpResponse 的导入。</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def index(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'polls/index.html', context)
+</code></pre></div></div>
+
+<h2 id="11-抛出404">11. 抛出404</h2>
+
+<p>我们可以加入一个try except，如果指定问题 ID 所对应的问题不存在，这个视图就会抛出一个 Http404 异常。</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def detail(request, question_id):
+    try:
+        question = Question.objects.get(pk=question_id)
+    except Question.DoesNotExist:
+        raise Http404("Question does not exist")
+    return render(request, 'polls/detail.html', {'question': question})
+</code></pre></div></div>
+
+<p>快捷函数为get_object_or_404()，也有 get_list_or_404() 函数，工作原理和 get_object_or_404() 一样，除了 get() 函数被换成了 filter() 函数。如果列表为空的话会抛出 Http404 异常。</p>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div id="share-bar">
+
+    <br>
+    <hr>
+    <br>
+
+    <h4>Share this:</h4>
+
+    <div class="share-buttons">
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Facebook" >
+            <i class="fa fa-facebook-official share-button"> facebook</i>
+        </a>
+
+        <a  href="https://twitter.com/intent/tweet?text=Django - 基础学习笔记&url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Twitter" >
+            <i class="fa fa-twitter share-button"> twitter</i>
+        </a>
+
+        <a  href="https://plus.google.com/share?url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Google+" >
+            <i class="fa fa-google-plus share-button"> google</i>
+        </a>
+
+        <a  href="https://www.pinterest.com/pin/create/button/?url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Pinterest" >
+            <i class="fa fa-pinterest-p share-button"> pinterest</i>
+        </a>
+
+        <a  href="https://www.tumblr.com/share/link?url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Tumblr" >
+            <i class="fa fa-tumblr share-button"> tumblr</i>
+        </a>
+
+        <a  href="http://www.reddit.com/submit?url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Reddit" >
+            <i class="fa fa-reddit-alien share-button"> reddit</i>
+        </a>
+
+        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html&title=Django - 基础学习笔记&summary=&source=焦点的动力炉 | Jiao Dian's Power Plant"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on LinkedIn" >
+            <i class="fa fa-linkedin share-button"> linkedin</i>
+        </a>
+
+        <a  href="mailto:?subject=Django - 基础学习笔记&amp;body=Check out this site http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html"
+            title="Share via Email" >
+            <i class="fa fa-envelope share-button"> email</i>
+        </a>
+    </div>
+
+</div>
+  </div><a class="u-url" href="/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col one-half">
+      <h2 class="footer-heading">焦点的动力炉 | Jiao Dian&#39;s Power Plant</h2>
+        <ul class="contact-list">
+          <li class="p-name">dianjiaogit</li><li><a class="u-email" href="mailto:jiaodianmail@gmail.com">jiaodianmail@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col one-half">
+        <p>This is Jiao Dian&#39;s blog. A place for sharing notes about my thoughts. Just for FUN.
+</p>
+      </div>
+
+      <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/dianjiaogit" title="dianjiaogit"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/dianjiao" title="dianjiao"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
