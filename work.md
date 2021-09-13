@@ -13,7 +13,7 @@ title: 工作笔记
     {% if category_name == "工作" %}
       {% for post in site.categories[category_name] %}
         <article class="archive-item">
-        <h4><a href="{{ site.baseurl }}{{ post.url }}"> {{post.date | date: '%Y/%m/%d'}}   {{post.title}}</a> </h4>
+        <h4><a href="{{ site.baseurl }}{{ post.url }}"> {{post.date | date: '%Y.%m.%d'}}   {{post.title}}</a> </h4>
         </article>
       {% endfor %}
     {% endif %}
