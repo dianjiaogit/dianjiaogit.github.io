@@ -75,8 +75,9 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
+  jekyll-feed
   kramdown-parser-gfm
   minima!
 
 BUNDLED WITH
-   2.2.13
+   2.2.25

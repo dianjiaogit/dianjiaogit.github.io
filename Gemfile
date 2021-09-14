@@ -6,3 +6,4 @@ gemspec
 gem "jekyll", ENV["JEKYLL_VERSION"] if ENV["JEKYLL_VERSION"]
 # gem "jekyll-archives"
 gem "kramdown-parser-gfm"
+gem "jekyll-feed"
