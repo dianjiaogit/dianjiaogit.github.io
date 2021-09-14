@@ -4,7 +4,7 @@ email: jiaodianmail@gmail.com
 description: > # this means to ignore newlines until "show_excerpts:"
   This is Jiao Dian's blog. A place for sharing notes about my thoughts. Just for FUN.
 
-url: https://dianjiaogit.github.io/
+url: https://dianjiaogit.github.io
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
