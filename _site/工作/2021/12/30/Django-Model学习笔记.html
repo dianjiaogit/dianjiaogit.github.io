@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Django Model 学习笔记 | 焦点的动力炉 Jiao Dian’s Power Plant</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Django Model 学习笔记" />
+<meta name="author" content="Jiao Dian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Models: Define your data, essential fields, and behaviors of your data. Each model maps to a single database table." />
+<meta property="og:description" content="Models: Define your data, essential fields, and behaviors of your data. Each model maps to a single database table." />
+<link rel="canonical" href="http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html" />
+<meta property="og:site_name" content="焦点的动力炉 Jiao Dian’s Power Plant" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-30T13:43:00+08:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html","headline":"Django Model 学习笔记","dateModified":"2021-12-30T13:43:00+08:00","datePublished":"2021-12-30T13:43:00+08:00","author":{"@type":"Person","name":"Jiao Dian"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"},"description":"Models: Define your data, essential fields, and behaviors of your data. Each model maps to a single database table.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="焦点的动力炉 | Jiao Dian's Power Plant" /><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+  
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">焦点的动力炉 | Jiao Dian&#39;s Power Plant</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/todo/">To-Do</a><a class="page-link" href="/blog/">博客</a><a class="page-link" href="/work/">工作笔记</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Django Model 学习笔记</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-12-30T13:43:00+08:00" itemprop="datePublished">Dec 30, 2021
+      </time>
+      <br>
+      <div class="post-categories">
+        
+        Categries: 
+        
+          <a href="/categories/#工作">工作</a>
+          
+        
+      </div></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="models-define-your-data-essential-fields-and-behaviors-of-your-data">Models: Define your data, essential fields, and behaviors of your data.</h2>
+<p>Each model maps to a single database table.</p>
+
+<hr />
+
+<h3 id="quick-example">Quick example</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Person(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+</code></pre></div></div>
+
+<p>This example model defines a Person. first_name and last_name are fields of the model.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE TABLE myapp_person (
+    "id" serial NOT NULL PRIMARY KEY,
+    "first_name" varchar(30) NOT NULL,
+    "last_name" varchar(30) NOT NULL
+);
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="using-models">Using models</h3>
+
+<p>Edit your settings file and change the INSTALLED_APPS.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSTALLED_APPS = [
+    #...
+    'myapp',
+    #...
+]
+</code></pre></div></div>
+
+<p>When you add new apps to INSTALLED_APPS, be sure to run manage.py migrate, optionally making migrations for them first with manage.py makemigrations.</p>
+
+<hr />
+
+<h2 id="fields">Fields</h2>
+
+<p>Fields: class attributes == database fields
+In-built APIs: clean, save, or delete……
+name conflict</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Musician(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    instrument = models.CharField(max_length=100)
+
+class Album(models.Model):
+    artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    release_date = models.DateField()
+    num_stars = models.IntegerField()
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="field-types">Field types:</h3>
+
+<p>AutoField
+BinaryField - max_length 
+BooleanField
+CharField - max_length<br />
+DateField
+DecimalField - max_length<br />
+EmailField - - max_length = 254
+IntegerField
+TextField
+…
+And another type of fields.</p>
+
+<hr />
+
+<h3 id="field-options">Field options:</h3>
+
+<p>null
+blank
+default
+help_text
+unique
+choices</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Person(models.Model):
+    SHIRT_SIZES = (
+        ('S', 'Small'),
+        ('M', 'Medium'),
+        ('L', 'Large'),
+    )
+    name = models.CharField(max_length=60)
+    shirt_size = models.CharField(max_length=1, choices=SHIRT_SIZES)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Runner(models.Model):
+    MedalType = models.TextChoices('MedalType', 'GOLD SILVER BRONZE')
+    name = models.CharField(max_length=60)
+    medal = models.CharField(blank=True, choices=MedalType.choices, max_length=10)
+</code></pre></div></div>
+
+<p>primary_key</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Fruit(models.Model):
+    name = models.CharField(max_length=100, primary_key=True)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; fruit = Fruit.objects.create(name='Apple')
+&gt;&gt;&gt; fruit.name = 'Pear'
+&gt;&gt;&gt; fruit.save()
+&gt;&gt;&gt; Fruit.objects.values_list('name', flat=True)
+&lt;QuerySet ['Apple', 'Pear']&gt;
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="verbose-field-names">Verbose field names</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>first_name = models.CharField("person's first name", max_length=30)
+</code></pre></div></div>
+
+<p>Except for ForeignKey, ManyToManyField and OneToOneField.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>verbose_name=
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="many-to-one-relationships-foreignkey">Many-to-one relationships: ForeignKey</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Manufacturer(models.Model):
+    # ...
+    pass
+
+class Car(models.Model):
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+    # ...
+</code></pre></div></div>
+
+<h3 id="on_delete">on_delete:</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Artist(models.Model):
+    name = models.CharField(max_length=10)
+
+class Album(models.Model):
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+
+class Song(models.Model):
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, on_delete=models.RESTRICT)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; artist_one = Artist.objects.create(name='artist one')
+&gt;&gt;&gt; artist_two = Artist.objects.create(name='artist two')
+&gt;&gt;&gt; album_one = Album.objects.create(artist=artist_one)
+&gt;&gt;&gt; album_two = Album.objects.create(artist=artist_two)
+&gt;&gt;&gt; song_one = Song.objects.create(artist=artist_one, album=album_one)
+&gt;&gt;&gt; song_two = Song.objects.create(artist=artist_one, album=album_two)
+&gt;&gt;&gt; album_one.delete()
+# Raises RestrictedError.
+&gt;&gt;&gt; artist_two.delete()
+# Raises RestrictedError.
+&gt;&gt;&gt; artist_one.delete()
+(4, {'Song': 2, 'Album': 1, 'Artist': 1})
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="many-to-many-relationships-manytomanyfield">Many-to-many relationships: ManyToManyField</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Topping(models.Model):
+    # ...
+    pass
+
+class Pizza(models.Model):
+    # ...
+    toppings = models.ManyToManyField(Topping)
+</code></pre></div></div>
+
+<h3 id="through">through</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Person(models.Model):
+    name = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.name
+
+class Group(models.Model):
+    name = models.CharField(max_length=128)
+    members = models.ManyToManyField(Person, through='Membership')
+
+    def __str__(self):
+        return self.name
+
+class Membership(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    date_joined = models.DateField()
+    invite_reason = models.CharField(max_length=64)
+</code></pre></div></div>
+
+<h3 id="through_fields">through_fields</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Person(models.Model):
+    name = models.CharField(max_length=50)
+
+class Group(models.Model):
+    name = models.CharField(max_length=128)
+    members = models.ManyToManyField(
+        Person,
+        through='Membership',
+        through_fields=('group', 'person'),
+    )
+
+class Membership(models.Model):
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    inviter = models.ForeignKey(
+        Person,
+        on_delete=models.CASCADE,
+        related_name="membership_invites",
+    )
+    invite_reason = models.CharField(max_length=64)
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="one-to-one-relationships-onetoonefield">One-to-one relationships: OneToOneField</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Place(models.Model):
+    name = models.CharField(max_length=50)
+    address = models.CharField(max_length=80)
+
+    def __str__(self):
+        return "%s the place" % self.name
+
+class Restaurant(models.Model):
+    place = models.OneToOneField(
+        Place,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
+    serves_hot_dogs = models.BooleanField(default=False)
+    serves_pizza = models.BooleanField(default=False)
+
+    def __str__(self):
+        return "%s the restaurant" % self.place.name
+
+class Waiter(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return "%s the waiter at %s" % (self.name, self.restaurant)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; p1 = Place(name='Demon Dogs', address='944 W. Fullerton')
+&gt;&gt;&gt; p1.save()
+&gt;&gt;&gt; p2 = Place(name='Ace Hardware', address='1013 N. Ashland')
+&gt;&gt;&gt; p2.save()
+&gt;&gt;&gt; r = Restaurant(place=p1, serves_hot_dogs=True, serves_pizza=False)
+&gt;&gt;&gt; r.save()
+&gt;&gt;&gt; r.place
+&lt;Place: Demon Dogs the place&gt;
+&gt;&gt;&gt; p1.restaurant
+&lt;Restaurant: Demon Dogs the restaurant&gt;
+&gt;&gt;&gt; from django.core.exceptions import ObjectDoesNotExist
+&gt;&gt;&gt; try:
+&gt;&gt;&gt;     p2.restaurant
+&gt;&gt;&gt; except ObjectDoesNotExist:
+&gt;&gt;&gt;     print("There is no restaurant here.")
+There is no restaurant here.
+&gt;&gt;&gt; hasattr(p2, 'restaurant')
+False
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="import-models-from-another-app">Import models from another app</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+from geography.models import ZipCode
+
+class Restaurant(models.Model):
+    # ...
+    zip_code = models.ForeignKey(
+        ZipCode,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="field-name-restrictions">Field name restrictions:</h3>
+<ol>
+  <li>Cannot be a Python reserved word</li>
+  <li>Cannot contain more than one underscore in a row</li>
+  <li>Cannot end with an underscore</li>
+</ol>
+
+<p>SQL reserved words, such as join, where or select, are allowed as model field names</p>
+
+<hr />
+
+<h2 id="meta-options">Meta options</h2>
+
+<p>Model metadata is “anything that’s not a field</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from django.db import models
+
+class Ox(models.Model):
+    horn_length = models.IntegerField()
+
+    class Meta:
+        ordering = ["horn_length"]
+        verbose_name_plural = "oxen"
+</code></pre></div></div>
+
+<p>db_table: name of the database table
+app_label: declare which app it belongs to</p>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div id="share-bar">
+
+    <br>
+    <hr>
+    <br>
+
+    <h4>Share this:</h4>
+
+    <div class="share-buttons">
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Facebook" >
+            <i class="fa fa-facebook-official share-button"> facebook</i>
+        </a>
+
+        <a  href="https://twitter.com/intent/tweet?text=Django Model 学习笔记&url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Twitter" >
+            <i class="fa fa-twitter share-button"> twitter</i>
+        </a>
+
+        <a  href="https://plus.google.com/share?url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Google+" >
+            <i class="fa fa-google-plus share-button"> google</i>
+        </a>
+
+        <a  href="https://www.pinterest.com/pin/create/button/?url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Pinterest" >
+            <i class="fa fa-pinterest-p share-button"> pinterest</i>
+        </a>
+
+        <a  href="https://www.tumblr.com/share/link?url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Tumblr" >
+            <i class="fa fa-tumblr share-button"> tumblr</i>
+        </a>
+
+        <a  href="http://www.reddit.com/submit?url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Reddit" >
+            <i class="fa fa-reddit-alien share-button"> reddit</i>
+        </a>
+
+        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html&title=Django Model 学习笔记&summary=&source=焦点的动力炉 | Jiao Dian's Power Plant"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on LinkedIn" >
+            <i class="fa fa-linkedin share-button"> linkedin</i>
+        </a>
+
+        <a  href="mailto:?subject=Django Model 学习笔记&amp;body=Check out this site http://localhost:4000/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"
+            title="Share via Email" >
+            <i class="fa fa-envelope share-button"> email</i>
+        </a>
+    </div>
+
+</div>
+  </div><a class="u-url" href="/%E5%B7%A5%E4%BD%9C/2021/12/30/Django-Model%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col one-half">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      <h2 class="footer-heading">焦点的动力炉 | Jiao Dian&#39;s Power Plant</h2>
+        <ul class="contact-list">
+          <li class="p-name">Jiao Dian</li><li><a class="u-email" href="mailto:jiaodianmail@gmail.com">jiaodianmail@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col one-half">
+        <p>This is Jiao Dian&#39;s blog. A place for sharing notes about my thoughts. Just for FUN.
+</p>
+      </div>
+
+      <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/dianjiaogit" title="dianjiaogit"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/dianjiao" title="dianjiao"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
