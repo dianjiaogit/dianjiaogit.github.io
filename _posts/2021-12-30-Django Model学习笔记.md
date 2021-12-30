@@ -20,7 +20,7 @@ class Person(models.Model):
     last_name = models.CharField(max_length=30)
 ```
 
-This example model defines a Person. first_name and last_name are fields of the model.
+This example model defines a Person. first_name and last_name are fields of the model.  
 
 ```
 CREATE TABLE myapp_person (
@@ -50,8 +50,8 @@ When you add new apps to INSTALLED_APPS, be sure to run manage.py migrate, optio
 
 ## Fields
 
-Fields: class attributes == database fields
-In-built APIs: clean, save, or delete......
+Fields: class attributes == database fields  
+In-built APIs: clean, save, or delete......  
 name conflict
 
 ```
@@ -73,28 +73,28 @@ class Album(models.Model):
 
 ### Field types:
 
-AutoField
-BinaryField - max_length 
-BooleanField
-CharField - max_length  
-DateField
-DecimalField - max_length  
-EmailField - - max_length = 254
-IntegerField
-TextField
-...
-And another type of fields.
+AutoField  
+BinaryField - max_length  
+BooleanField  
+CharField - max_length    
+DateField  
+DecimalField - max_length   
+EmailField - max_length = 254  
+IntegerField  
+TextField  
+...  
+And another type of fields.  
 
 ---
 
 ### Field options:
 
-null
-blank
-default
-help_text
-unique
-choices
+null  
+blank  
+default  
+help_text  
+unique  
+choices  
 
 ```
 from django.db import models
@@ -143,7 +143,7 @@ class Fruit(models.Model):
 first_name = models.CharField("person's first name", max_length=30)
 ```
 
-Except for ForeignKey, ManyToManyField and OneToOneField. 
+Except for ForeignKey, ManyToManyField and OneToOneField.   
 
 ```
 verbose_name=
@@ -361,5 +361,96 @@ class Ox(models.Model):
         verbose_name_plural = "oxen"
 ```
 
-db_table: name of the database table
-app_label: declare which app it belongs to
+db_table: name of the database table  
+app_label: declare which app it belongs to  
+
+---
+
+## Model inheritance
+
+- abstract base model inheritance
+- multi-table inheritance
+- proxy inheritance
+
+--- 
+
+### abstract base model inheritance
+
+It does not generate a database table or have a manager, and cannot be instantiated or saved directly.  
+Fields inherited from abstract base classes can be overridden with another field or value, or be removed with None.  
+Base class Table is not created in This inheritance.  
+
+```
+from django.db import models
+
+# Create your models here.
+
+class ContactInfo(models.Model):
+	name=models.CharField(max_length=20)
+	email=models.EmailField(max_length=20)
+	address=models.TextField(max_length=20)
+
+    class Meta:
+        abstract=True
+
+class Customer(ContactInfo):
+	phone=models.IntegerField(max_length=15)
+
+class Staff(ContactInfo):
+	position=models.CharField(max_length=10)
+```
+
+---
+
+### multi-table inheritance
+
+```
+from django.db import models
+
+# Create your models here.
+
+class Place(models.Model):
+	name=models.CharField(max_length=20)
+	address=models.TextField(max_length=20)
+
+	def __str__(self):
+		return self.name
+
+
+class Restaurants(Place):
+	serves_pizza=models.BooleanField(default=False)
+	serves_pasta=models.BooleanField(default=False)
+
+	def __str__(self):
+		return self.serves_pasta
+```
+
+Base class table is also created in this inheritance.  
+it will create a one to one field model relationship for Restaurant table from Place table.  
+
+---
+
+### proxy inheritance
+
+```
+from django.db import models
+
+class Person(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+
+class MyPerson(Person):
+    class Meta:
+        proxy = True
+
+    def do_something(self):
+        # ...
+        pass
+```
+
+This style is used, if you only want to modify the Python level behaviour of the model, without changing the model’s fields.  
+You Inherit from base class and you can add your own properties except fields.  
+base class should not be abstract class.  
+we can not use multiple inheritance in proxy models.  
+The main use of this is to overwrite the main functionalities of existing model.  
+it always query on original model with overridden methods.  
