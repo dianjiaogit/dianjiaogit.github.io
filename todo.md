@@ -14,6 +14,7 @@ permalink: /todo/
 
 
 ### 学习Django  
+- [x] Django Models, Fields
 - [ ] middleware, context_processor
 - [ ] apps.py admin.py management
 - [ ] kwargs name in path() and reverse
@@ -31,4 +32,21 @@ permalink: /todo/
 <br>
 
 ## 读书
+- [x] 《晨间日记的奇迹》
 - [ ] 《禅与摩托车维修艺术》
+- [ ] 《The Sciences of the Artificial》
+- [ ] 《同构-编程中的数学》
+- [ ] 《我生活的种种模式》
+- [ ] 《薛兆丰经济学讲义》
+- [ ] 《笑场》
+  
+<br>
+
+## 电影&戏剧
+- [x] 《门锁》
+- [x] 《失控玩家》
+- [x] 《Don't Look Up》
+- [x] 《楚门的世界》
+- [x] 《We Made a Beautiful Bouquet (花束般的恋爱)》
+- [x] 《钦差大臣》
+- [ ] 《芬奇》
