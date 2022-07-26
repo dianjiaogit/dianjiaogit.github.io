@@ -1,0 +1,14 @@
+I"�<p>From README of Consumer Data, here are the processes we need to do when we publish to beta and live.</p>
+
+<p><code class="language-plaintext highlighter-rouge">cd fabric</code> goes to fabric/ directory first.</p>
+
+<p><code class="language-plaintext highlighter-rouge">source .envrc</code>, the purpose of this step is to set <code class="language-plaintext highlighter-rouge">POETRY_HTTP_BASIC_ARTIFACTORY_USERNAME</code> and <code class="language-plaintext highlighter-rouge">PASSWORD</code>. If it returns “Command not found” error, we can set them manually by running <code class="language-plaintext highlighter-rouge">portunus -r &amp;&amp; source ~/.jfrog-env &amp;&amp; export POETRY_HTTP_BASIC_ARTIFACTORY_USERNAME="${JFROG_USERNAME}" POETRY_HTTP_BASIC_ARTIFACTORY_PASSWORD="${JFROG_ACCESS_TOKEN}"</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">poetry install</code>, this step will install all the necessary packages. Make sure poetry is installed before running this step.</p>
+
+<p><code class="language-plaintext highlighter-rouge">fab list_packages</code>, fab was installed in the last step, but only works on Python 2.7. So if it says “fab command not found“, we may need to switch the Python version by using <code class="language-plaintext highlighter-rouge">poetry env use python2.7</code>, and then go to the directory of python2.7 and run <code class="language-plaintext highlighter-rouge">source bin/activate</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">fab --initial-sudo-password-prompt deploy:(latest|&lt;revision&gt;) -R beta-ops|live-ops|live-web</code>, and <code class="language-plaintext highlighter-rouge">fab --initial-sudo-password-prompt switch:&lt;revision&gt; -R beta-ops|live-ops|live-web</code>, release on beta-ops first, check whether the changes is working on beta-ops. Send a release note email before releasing on live-ops and live-web.</p>
+
+<p>For checking on beta-ops, the server of beta-ops may need to restart by running <code class="language-plaintext highlighter-rouge">sudo -uconsumerdata-svc -H bash</code> and <code class="language-plaintext highlighter-rouge">/sbin/service wsgi restart</code>.</p>
+:ET

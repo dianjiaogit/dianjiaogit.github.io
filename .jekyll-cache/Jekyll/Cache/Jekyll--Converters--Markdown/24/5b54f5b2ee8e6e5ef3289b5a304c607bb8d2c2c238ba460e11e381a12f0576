@@ -1,0 +1,40 @@
+I"�<h1 id="bayesian-probability-theory">Bayesian Probability Theory</h1>
+
+<h2 id="frequency-interpretation-counting">Frequency Interpretation: Counting</h2>
+<p>Probabilities –&gt; relative frequencies<br />
+The probability of the event E: $\lim_{n \to \infty} k_n (E) / n$</p>
+
+<ul>
+  <li>Problem:
+    <ol>
+      <li>Frequency Interpretation is Circular (unlikely occurance)</li>
+      <li>Reference Class Problem (No identical similar)</li>
+      <li>Limited to I.I.D. (non-i.i.d. data)</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="objective-interpretation-uncertain-events">Objective Interpretation: Uncertain Events</h2>
+<p>Objectivist probabilities –&gt; real aspects of the world</p>
+
+<p><strong>Axioms 3.1 (Kolmogorov ‘s axioms of probability theory)</strong><br />
+Let $\Omega$ be the sample space. Events are subsets of $\Omega$.<br />
+If A and B are events, then A $\cap$ B, A $\cup$ B, and A \ B are events.<br />
+$\Omega$ and {} are events.<br />
+There is a function p which assigns nonnegative reals, called proabilities, to each event.<br />
+p($\Omega$) = 1, p({}) = 0.<br />
+p(A $\cup$ B) = p(A) + p(B) - p(A $\cap$ B).<br />
+For a decreasing sequence A1 $\supset$ A2 $\supset$ A3 … of events with $\bigcap_n$ An = {} we have $\lim_{n \to \infty}$ p(An) = 0.</p>
+
+<p><strong>Definition 3.2 (Conditional probability)</strong><br />
+If A and B are events with p(A) &gt; 0, then $p (B | A) := \frac{p (A \cap) B}{p(A)}$</p>
+
+<p>p($\cdot$ | A) is also a probability measure, if p($\cdot$) satisfies the Kolmogorov axioms.</p>
+
+<p><strong>Theorem 3.3 (Bayes’ rule 1)</strong><br />
+If A and B are events with p(A) &gt; 0 and p(B) &gt; 0, then $p(B | A) = \frac{p(A | B) p(B)}{p(A)}$</p>
+
+<h2 id="subjective-interpretation-degree-of-belief">Subjective Interpretation: Degree of Belief</h2>
+<p><strong>Axioms 3.4 (Cox’s (1946) axioms for beliefs)</strong><br />
+The degree of belief in event B given that event A occurred: function Bel(B|A).</p>
+:ET

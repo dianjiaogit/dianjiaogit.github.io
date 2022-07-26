@@ -1,0 +1,6 @@
+I"ë<h1 id="lazy-binding">Lazy Binding</h1>
+<p>Relocation when unresolved symbol is first referenced<br />
+Can be overridden<br />
+Procedure Linkage Table (.plt) and Global Offset Table (.got/.got.plt).<br />
+Faster. Load when needed.</p>
+:ET

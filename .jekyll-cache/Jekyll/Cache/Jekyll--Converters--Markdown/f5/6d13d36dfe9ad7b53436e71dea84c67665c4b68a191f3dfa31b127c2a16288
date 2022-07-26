@@ -1,0 +1,60 @@
+I"�<p>此文档是我在学习svn项目第一个case时所做的笔记。</p>
+
+<p>我司在svn上的项目，通常包含三种版本，branch, release和trunk。</p>
+
+<p>branch里面包含的是当前项目目前正在开发中的各个branch。release里面包含的是当前项目的各个正式版本。</p>
+
+<h2 id="1-创建branch">1. 创建branch</h2>
+
+<p>通常我们对项目进行修改时，都是需要先从trunk把原代码复制到自己新建的branch。<br />
+命令行为： <code class="language-plaintext highlighter-rouge">svn cp [trunk] [branch] -m 'message'</code><br />
+[trunk]为trunk的url<br />
+[branch]为自己要创建的branch的url，通常为”moat-xxxxxx-&lt;description&gt;“，xxxxxx为当前case id<br />
+‘message’通常为”MOAT-xxxxxx Create branch”</p>
+
+<h2 id="2-本地branch修改完成后的检查">2. 本地branch修改完成后的检查</h2>
+
+<p>当branch上的修改完成后，我们可以用svn命令来进行检查。<br />
+使用<code class="language-plaintext highlighter-rouge">svn st</code>来查看有哪些文件被改动了。<br />
+使用<code class="language-plaintext highlighter-rouge">svn diff</code>来查看具体改动的内容。</p>
+
+<h2 id="3-从本地branch上传到云端服务器">3. 从本地branch上传到云端服务器</h2>
+
+<p>使用<code class="language-plaintext highlighter-rouge">svn ci -m "message"</code>来把改动上传。<br />
+message格式为“MOAT-xxxxxx: &lt;description&gt;”</p>
+
+<h2 id="4-下载trunk代码到本地">4. 下载trunk代码到本地</h2>
+
+<p>使用<code class="language-plaintext highlighter-rouge">svn co [trunk]</code>将trunk代码下载到本地。</p>
+
+<h2 id="5-将branch-merge到trunk">5. 将branch merge到trunk</h2>
+
+<p>先进入到trunk文件夹内。<br />
+然后分别使用</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svnmerge init [branch]  
+svn ci -F svnmerge-commit-message.txt
+svnmerge avail -l -S [branch]
+svnmerge merge -r[xxx] -S [branch] //此处可为-r[xxx],[xxx],[xxx]或者-r[xxx]:[xxx]
+svn diff
+svn ci -F svnmerge-commit-message.txt
+</code></pre></div></div>
+
+<h2 id="6-下载release代码到本地">6. 下载release代码到本地</h2>
+
+<p>使用<code class="language-plaintext highlighter-rouge">svn co [release]</code>将release代码下载到本地。</p>
+
+<h2 id="7-将trunk-merge到release">7. 将trunk merge到release</h2>
+
+<p>先进入到release文件夹内。<br />
+然后分别使用</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svnmerge avail -l
+svnmerge merge -r[xxx] -S [trunk] //此处可为-r[xxx],[xxx],[xxx]或者-r[xxx]:[xxx]
+svn diff
+svn ci -F svnmerge-commit-message.txt
+</code></pre></div></div>
+
+<h2 id="8-删除之前所创建的branch">8. 删除之前所创建的branch</h2>
+
+<p>使用<code class="language-plaintext highlighter-rouge">svn rm [branch] -m "message"</code>来删除之前创建的branch。<br />
+message的内容通常为Remove branch</p>
+:ET

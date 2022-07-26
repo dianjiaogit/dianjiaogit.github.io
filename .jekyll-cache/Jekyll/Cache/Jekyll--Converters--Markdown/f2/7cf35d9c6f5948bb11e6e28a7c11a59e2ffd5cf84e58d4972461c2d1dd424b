@@ -1,0 +1,64 @@
+I"<h2 id="function-dectection">Function Dectection</h2>
+
+<p>Called directly by the $call$ instruction.<br />
+Indirect all is hard to dectect.</p>
+
+<h2 id="object-oriented-code">Object-Oriented Code</h2>
+<p>We only discuss about C code in this course</p>
+
+<h2 id="structuring-data">Structuring Data</h2>
+<p>Automatic data struction detection in stripped binaries is a notoriouly difficult problem<br />
+Some codes can be compiled into similar instructions</p>
+
+<h2 id="decompilation">Decompilation</h2>
+<p>Guessing function signatures and local variables<br />
+Recovering control flows and function calls</p>
+
+<p>Intermediate Representation</p>
+<ul>
+  <li>Abstration</li>
+  <li>Goal: translate Machine code to IR code</li>
+</ul>
+
+<h1 id="binary-analysis-properties">Binary Analysis Properties</h1>
+<p>Interprocedural and intraprocedural<br />
+Flow sensitivity<br />
+Context sensitivity</p>
+
+<h2 id="intraprocedural">Intraprocedural</h2>
+<p>Code within a single function at a time</p>
+<ul>
+  <li>Maybe incomplete</li>
+</ul>
+
+<h2 id="interprocedural">Interprocedural</h2>
+<p>Consider entire program as a whole</p>
+<ul>
+  <li>Might take long so results no longer matter.</li>
+</ul>
+
+<h2 id="flow-sensitivity">Flow Sensitivity</h2>
+<p>Take the order of the instructions into account.<br />
+Either flow-sensitive or flow-insensitive.</p>
+<ul>
+  <li>flow-sensitive more conplex.</li>
+</ul>
+
+<h2 id="context-sensitivity">Context Sensitivity</h2>
+<p>Take the order of the function invocation into account.</p>
+
+<h2 id="loop-detection">Loop Detection</h2>
+<p>Implemented using $jump$ instructions.<br />
+Most execution time is spent in loops.<br />
+Buffer overflow tends in occur in loops.</p>
+
+<p>Compilers use dominance trees to determine natural loops.</p>
+
+<h2 id="reaching-definition-analysis">Reaching Definition Analysis</h2>
+<p>Reachable data definitions from this point.<br />
+CFG level.<br />
+Which can reach at the start.  Which can still be alive after.</p>
+
+<h2 id="program-slicing">Program Slicing</h2>
+<p>Find irrelevant slices and remove them.</p>
+:ET

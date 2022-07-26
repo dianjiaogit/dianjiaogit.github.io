@@ -1,0 +1,40 @@
+I"%<h1 id="basic-binary-analysis-in-linux">Basic Binary Analysis in Linux</h1>
+
+<h2 id="tools">Tools</h2>
+<p>GNU Binutils tools:</p>
+<ul>
+  <li>c++filt</li>
+  <li>objdump</li>
+  <li>readelf</li>
+  <li>strings</li>
+  <li>nm</li>
+  <li>base64</li>
+  <li>file</li>
+  <li>ldd</li>
+  <li>strace</li>
+  <li>ltrace</li>
+  <li>xxd</li>
+  <li>hexedit</li>
+  <li>dd</li>
+</ul>
+
+<h2 id="ctf-walkthrough">CTF Walkthrough</h2>
+
+<h3 id="1-identify-the-payload">1. Identify the payload</h3>
+<p>base64:  <br />
+represent binary in a textual form
+using “=” as padding</p>
+
+<p>Use $base64$ to encode and decode.<br />
+Use $file$ to identify the type of file.<br />
+Use $ldd$ to identify dependencies.</p>
+
+<h3 id="2-finding-the-missing-shared-library">2. Finding the missing shared library</h3>
+<p>Use $xxd$ to find ELF header.<br />
+Use $dd$ to extract.</p>
+
+<p>ELF header is 64 bytes.</p>
+
+<h3 id="3-extracting-the-shared-library">3. Extracting the shared library</h3>
+<p>Size of the file = Start of section headers + (Number of section headers * Size of section headers)</p>
+:ET

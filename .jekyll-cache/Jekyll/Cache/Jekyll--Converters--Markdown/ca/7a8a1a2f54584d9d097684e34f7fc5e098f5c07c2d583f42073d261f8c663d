@@ -1,0 +1,37 @@
+I"9<h1 id="linear-models-for-regression">Linear Models for Regression</h1>
+
+<p>y(x, w) = w0 + w1x1 + … + wDxD<br />
+w: bias parameter<br />
+x: input (independent with each other)</p>
+
+<h2 id="occams-razor">Occam’s Razor</h2>
+<p>Being simple.</p>
+
+<p>Goal is to minimize squared errors and analytic solution<br />
+convex losses and regularizers</p>
+
+<h3 id="conventions">Conventions</h3>
+<p>See X as a matrix, rows are data points, columns are input dimentions.</p>
+
+<h2 id="feature-functions">Feature Functions</h2>
+
+<h3 id="polunomial-basis-functions">Polunomial Basis Functions</h3>
+<p>Infinite magnitude. Extrapolate poorly</p>
+
+<h3 id="gaussian-basis-functions">Gaussian Basis Functions</h3>
+<p>Magnitude bounded. Would not vanish.</p>
+
+<h3 id="sigmoidal-basis-functions">Sigmoidal Basis Functions</h3>
+<p>Hyperbolic tangent.</p>
+
+<h2 id="define-likelihood">Define Likelihood</h2>
+<p>beta: percision</p>
+
+<p>Sum-of-squares error function: E_D(w)</p>
+
+<p>Maximise Likelihood function = Minimise Error function</p>
+
+<p>Then find the stationary point.</p>
+
+<p>Batch learning</p>
+:ET

@@ -1,0 +1,9 @@
+I"9<h2 id="continue">(Continue)</h2>
+
+<h3 id="4-analysing-the-shared-library">4. Analysing the shared library</h3>
+
+<p>Use $nm$ to demangle.<br />
+Looking for hints with $strings$, read all the displayable texts.<br />
+$LD\_LIBRARY\_PATH$ to add library path.<br />
+$echo \ \$?$ to check whether there is error.</p>
+:ET

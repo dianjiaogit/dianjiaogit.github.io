@@ -1,0 +1,68 @@
+I"�<p><br /></p>
+<blockquote>
+  <p>很多还未完成的事情，如果不记录下来，可能一辈子都不会去完成了。</p>
+</blockquote>
+
+<p>这里是我的To-Do List，用于提醒自己需要做的事情，但愿不要越来越长~</p>
+
+<p><br /></p>
+
+<h2 id="工作方面">工作方面</h2>
+
+<h3 id="学习django">学习Django</h3>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Django Models, Fields</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />middleware, context_processor</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />apps.py admin.py management</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />kwargs name in path() and reverse</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />sessions, auth and contenttypes - How to get to the admin page</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />migration and migration history - <a href="https://gitlab.com/mintel/portal/portal/-/blob/master/mintel_idp/portal/migrations/0002_create_demo_org.py">https://gitlab.com/mintel/portal/portal/-/blob/master/mintel_idp/portal/migrations/0002_create_demo_org.py</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Custom field - <a href="https://docs.djangoproject.com/en/3.2/howto/custom-model-fields/">https://docs.djangoproject.com/en/3.2/howto/custom-model-fields/</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Queryset advanced use, Q object - <a href="https://docs.djangoproject.com/en/3.2/ref/models/querysets/">https://docs.djangoproject.com/en/3.2/ref/models/querysets/</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />difference between wsgi and asgi - <a href="https://medium.com/analytics-vidhya/difference-between-wsgi-and-asgi-807158ed1d4c">https://medium.com/analytics-vidhya/difference-between-wsgi-and-asgi-807158ed1d4c</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><a href="https://docs.djangoproject.com/en/3.2/ref/templates/api/#django.template.Context">https://docs.djangoproject.com/en/3.2/ref/templates/api/#django.template.Context</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><a href="https://medium.com/@inem.patrick/django-database-integrity-foreignkey-on-delete-option-db7d160762e4">https://medium.com/@inem.patrick/django-database-integrity-foreignkey-on-delete-option-db7d160762e4</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><a href="https://docs.djangoproject.com/en/3.2/topics/http/middleware/#other-middleware-hooks">https://docs.djangoproject.com/en/3.2/topics/http/middleware/#other-middleware-hooks</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Managing static files - <a href="https://docs.djangoproject.com/en/3.2/howto/static-files/">https://docs.djangoproject.com/en/3.2/howto/static-files/</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">include 'template\_name.html' with variable\_1='value' variable\_2=8</code></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="读书">读书</h2>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《晨间日记的奇迹》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />《禅与摩托车维修艺术》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />《The Sciences of the Artificial》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />《同构-编程中的数学》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />《我生活的种种模式》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />《薛兆丰经济学讲义》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />《笑场》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />《十二把椅子》</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="电影戏剧电视剧">电影&amp;戏剧&amp;电视剧</h2>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《门锁》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《失控玩家》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《Don’t Look Up》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《楚门的世界》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《We Made a Beautiful Bouquet (花束般的恋爱)》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《钦差大臣》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《盲山》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《活着》(韩国丧尸片)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《开端》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《芬奇》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《非自然死亡》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《是，大臣》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《是，首相》</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />《人民公仆》</li>
+</ul>
+
+<h2 id="动漫">动漫</h2>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《国王排名》</li>
+</ul>
+:ET

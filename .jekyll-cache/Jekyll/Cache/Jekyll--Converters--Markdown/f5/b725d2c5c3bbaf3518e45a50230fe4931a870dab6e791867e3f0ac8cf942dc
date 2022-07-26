@@ -1,0 +1,62 @@
+I"2	<h3 id="machine-learning-includes-supervised-learning-unsupervised-learning-reinforcement-learning">Machine Learning includes Supervised Learning, Unsupervised Learning, Reinforcement Learning.</h3>
+
+<hr />
+<p><br /></p>
+
+<h2 id="supervised-learning">Supervised Learning:</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given a dataset that contains n samples (x1, y1) (x2, y2)...
+Find relation between features and output
+and then do prediction
+</code></pre></div></div>
+
+<h3 id="regression-vs-classification">Regression VS Classification</h3>
+
+<p>Regression: <br />
+	if y is a continuous variable (eg. price predicion)</p>
+
+<p>Classification: <br />
+	label is a discrete variable</p>
+
+<h2 id="unsupervised-learning">Unsupervised Learning:</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dataset has no labels
+</code></pre></div></div>
+
+<h3 id="clustering">Clustering:</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gaussian mixture model, 
+k-means, 
+PCA
+</code></pre></div></div>
+
+<h3 id="use-for-cv">Use for CV:</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Object detection
+Objection localization
+Image Classification
+</code></pre></div></div>
+
+<h3 id="use-for-nlp">Use for NLP:</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Machine translation
+</code></pre></div></div>
+
+<h2 id="reinforcement-learning">Reinforcement Learning:</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Collect data interactively
+Try strategy and collect feedbacks
+Improve the strategy based on the feedbacks
+</code></pre></div></div>
+
+<h3 id="eg">E.g.:</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AI play video games
+Alpha Go
+MuZero (Dec 2020), Deepmind, more general, play all games. 
+</code></pre></div></div>
+
+<p>Word “Embeddings”: <br />
+	- Represent words by vectors <br />
+	- Represent relation by direction</p>
+
+<p>Senticap: <br />
+	- Describing Images with Sentiments</p>
+
+<p>SemStyle: <br />
+	- Learning to Caption from Romantic Novels</p>
+
+:ET

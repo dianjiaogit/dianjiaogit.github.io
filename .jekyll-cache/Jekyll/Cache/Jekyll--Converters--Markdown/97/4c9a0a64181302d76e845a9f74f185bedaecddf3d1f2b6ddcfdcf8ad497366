@@ -1,0 +1,14 @@
+I"$<p>此文档是我在学习Gitlab项目portal时所做的笔记。</p>
+
+<h2 id="首先将项目clone到本地">首先将项目clone到本地</h2>
+
+<p><code class="language-plaintext highlighter-rouge">git clone xxxxx.git</code></p>
+
+<h2 id="然后创建一个新的branch">然后创建一个新的branch</h2>
+
+<p><code class="language-plaintext highlighter-rouge">git checkout -b [new-branch]</code></p>
+
+<h2 id="文件修改后">文件修改后</h2>
+
+<p>修改后，用make help看看有什么指令，make lock重新生成一下Pipfile.lock,</p>
+:ET

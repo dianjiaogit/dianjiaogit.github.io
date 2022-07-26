@@ -1,0 +1,12 @@
+I"z<h2 id="连接到此服务器">连接到此服务器</h2>
+
+<p>ssh moat-utils01.chicago.mintel.ad</p>
+
+<h2 id="生成triage-report">生成triage report</h2>
+
+<p>/data/moat_report/releases/current/scripts/send_triage_report.sh moat@mintel.com</p>
+
+<h2 id="flowdock-moat回复">Flowdock MOAT回复</h2>
+
+<p>在Flowdock MOAT组的这封邮件下面@Mohamed, #last_email_triaged</p>
+:ET

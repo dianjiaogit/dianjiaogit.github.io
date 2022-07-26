@@ -1,0 +1,5 @@
+I"Ú<h2 id="hex-editing">Hex Editing</h2>
+<p>know where to edit, directly edit using hex editor.<br />
+only allows in-place editing. No adding new bytes.<br />
+But can rewrite padding bytes, dead code, or unused data.</p>
+:ET
