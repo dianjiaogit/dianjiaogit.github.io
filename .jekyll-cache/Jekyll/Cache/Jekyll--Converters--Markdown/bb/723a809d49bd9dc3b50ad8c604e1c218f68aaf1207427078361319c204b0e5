@@ -1,4 +1,4 @@
-I"$<div id="archives">
+I"(<div id="archives">
 
   <div class="archive-group">
     
@@ -73,6 +73,14 @@
 
     <h3 class="category-head">Notes</h3>
     <a name="Notes"></a>
+    
+    <article class="archive-item">
+      <a href="/notes/robotics/2022/07/26/Robotics-notes.html"> 2022/07/26   Robotics Notes 1 </a>
+    </article>
+    
+    <article class="archive-item">
+      <a href="/notes/information%20theory/2022/07/26/Information-Theory-notes.html"> 2022/07/26   Information Theory Notes 1 </a>
+    </article>
     
     <article class="archive-item">
       <a href="/notes/software%20security/2021/03/10/SS-notes.html"> 2021/03/10   Software Security Notes 8 Binary modification   </a>
@@ -244,6 +252,34 @@
     
     <article class="archive-item">
       <a href="/%E5%B7%A5%E4%BD%9C/2021/08/03/Django%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html"> 2021/08/03   Django - 基础学习笔记 </a>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#Information Theory"></div>
+    <p></p>
+
+    <h3 class="category-head">Information Theory</h3>
+    <a name="Information Theory"></a>
+    
+    <article class="archive-item">
+      <a href="/notes/information%20theory/2022/07/26/Information-Theory-notes.html"> 2022/07/26   Information Theory Notes 1 </a>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#Robotics"></div>
+    <p></p>
+
+    <h3 class="category-head">Robotics</h3>
+    <a name="Robotics"></a>
+    
+    <article class="archive-item">
+      <a href="/notes/robotics/2022/07/26/Robotics-notes.html"> 2022/07/26   Robotics Notes 1 </a>
     </article>
     
   </div>
