@@ -2,7 +2,7 @@
 layout: post
 title:  "Consumer Data - Publishing"
 date:   2021-9-2 00:15:25 +0800
-categories: [工作]
+categories: [Work]
 ---
 
 From README of Consumer Data, here are the processes we need to do when we publish to beta and live.
