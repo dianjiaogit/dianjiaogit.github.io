@@ -3,22 +3,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Statistic Machine Learning Notes 1 Introduction | 焦点的动力炉 Jiao Dian’s Power Plant</title>
+<title>Robotics Notes 2 | 焦点的动力炉 Jiao Dian’s Power Plant</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Statistic Machine Learning Notes 1 Introduction" />
+<meta property="og:title" content="Robotics Notes 2" />
 <meta name="author" content="Jiao Dian" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Machine Learning includes Supervised Learning, Unsupervised Learning, Reinforcement Learning." />
-<meta property="og:description" content="Machine Learning includes Supervised Learning, Unsupervised Learning, Reinforcement Learning." />
-<link rel="canonical" href="http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html" />
-<meta property="og:url" content="http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html" />
+<meta name="description" content="Movement of Robots" />
+<meta property="og:description" content="Movement of Robots" />
+<link rel="canonical" href="http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html" />
+<meta property="og:url" content="http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html" />
 <meta property="og:site_name" content="焦点的动力炉 Jiao Dian’s Power Plant" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-02-22T10:00:00+11:00" />
+<meta property="article:published_time" content="2022-08-02T01:14:00+10:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Statistic Machine Learning Notes 1 Introduction" />
+<meta property="twitter:title" content="Robotics Notes 2" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jiao Dian"},"dateModified":"2021-02-22T10:00:00+11:00","datePublished":"2021-02-22T10:00:00+11:00","description":"Machine Learning includes Supervised Learning, Unsupervised Learning, Reinforcement Learning.","headline":"Statistic Machine Learning Notes 1 Introduction","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html"},"url":"http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jiao Dian"},"dateModified":"2022-08-02T01:14:00+10:00","datePublished":"2022-08-02T01:14:00+10:00","description":"Movement of Robots","headline":"Robotics Notes 2","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html"},"url":"http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="焦点的动力炉 | Jiao Dian&apos;s Power Plant" /><script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -51,9 +51,9 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Statistic Machine Learning Notes 1 Introduction</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Robotics Notes 2</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2021-02-22T10:00:00+11:00" itemprop="datePublished">Feb 22, 2021
+      <time class="dt-published" datetime="2022-08-02T01:14:00+10:00" itemprop="datePublished">Aug 2, 2022
       </time>
       <br>
       <div class="post-categories">
@@ -63,74 +63,66 @@
           <a href="/categories/#Notes">Notes</a>
           &nbsp;
         
-          <a href="/categories/#Statistic Mchine Learning">Statistic Mchine Learning</a>
+          <a href="/categories/#Robotics">Robotics</a>
           
         
       </div></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h3 id="machine-learning-includes-supervised-learning-unsupervised-learning-reinforcement-learning">Machine Learning includes Supervised Learning, Unsupervised Learning, Reinforcement Learning.</h3>
+    <h2 id="movement-of-robots">Movement of Robots</h2>
+
+<ul>
+  <li>Locomotion: Mechanical process that generates motion (Legs, Wheels, Flippers…)</li>
+  <li>Kinematics: Position, velocity, acceleration…</li>
+  <li>Dynamics: motion caused by forces ($\frac{d}{dx} mv = F$)</li>
+  <li>Motion Control: choice of input to generate motion for a goal</li>
+</ul>
 
 <hr />
-<p><br /></p>
 
-<h2 id="supervised-learning">Supervised Learning:</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given a dataset that contains n samples (x1, y1) (x2, y2)...
-Find relation between features and output
-and then do prediction
-</code></pre></div></div>
+<p>Pose: body-fixed frame, spatial variable, position (x, y) and orientation (ex, ey) (for 2D)</p>
 
-<h3 id="regression-vs-classification">Regression VS Classification</h3>
+<p>Pose of a robot: origin of BFF, orientation of BFF, w.r.t. reference frame {A}</p>
 
-<p>Regression: <br />
-	if y is a continuous variable (eg. price predicion)</p>
+<p>Pose in 2D: $\begin{bmatrix}
+    x <br />
+    y <br />
+    \theta
+\end{bmatrix}$, (x, y) is the location of robot centre, $\theta$ is the relative orientation of the robot.</p>
 
-<p>Classification: <br />
-	label is a discrete variable</p>
+<p>Velocity in 2D:</p>
+<ul>
+  <li>body-frame velocity in inertial coordinates: d/dt (x y) = (vx vy)</li>
+  <li>body-frame velocity in body coordinates: (u 0) = $\left( \begin{matrix}
+  cos(\theta) &amp; sin(\theta) <br />
+  -sin(\theta) &amp; cos(\theta) <br />
+\end{matrix} \right) \left( \begin{matrix}
+  v_x <br />
+  v_y <br />
+\end{matrix} \right)$</li>
+  <li>Angular velocity $\theta$: anti-clockwise, body velocity.</li>
+</ul>
 
-<h2 id="unsupervised-learning">Unsupervised Learning:</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dataset has no labels
-</code></pre></div></div>
+<hr />
 
-<h3 id="clustering">Clustering:</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gaussian mixture model, 
-k-means, 
-PCA
-</code></pre></div></div>
+<p>Angles of rotation of the wheels are configuration varibles or states.</p>
 
-<h3 id="use-for-cv">Use for CV:</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Object detection
-Objection localization
-Image Classification
-</code></pre></div></div>
+<hr />
 
-<h3 id="use-for-nlp">Use for NLP:</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Machine translation
-</code></pre></div></div>
+<p>Distinction between configuration state (internal) and pose state (external)</p>
 
-<h2 id="reinforcement-learning">Reinforcement Learning:</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Collect data interactively
-Try strategy and collect feedbacks
-Improve the strategy based on the feedbacks
-</code></pre></div></div>
+<p>Configuration: (q1, q2, q3,…, qn)<br />
+Pose: (PE, RE)</p>
 
-<h3 id="eg">E.g.:</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AI play video games
-Alpha Go
-MuZero (Dec 2020), Deepmind, more general, play all games. 
-</code></pre></div></div>
+<p>Pose = $f$(Configuration)<br />
+Configuration = $f^{-1}$(Pose)</p>
 
-<p>Word “Embeddings”: <br />
-	- Represent words by vectors <br />
-	- Represent relation by direction</p>
+<p>f is not one-to-one.</p>
 
-<p>Senticap: <br />
-	- Describing Images with Sentiments</p>
+<hr />
 
-<p>SemStyle: <br />
-	- Learning to Caption from Romantic Novels</p>
-
+<p>Wheel angles are not related algebraically to the position.</p>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -143,56 +135,56 @@ MuZero (Dec 2020), Deepmind, more general, play all games.
     <h4>Share this:</h4>
 
     <div class="share-buttons">
-        <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html"
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Facebook" >
             <i class="fa fa-facebook-official share-button"> facebook</i>
         </a>
 
-        <a  href="https://twitter.com/intent/tweet?text=Statistic Machine Learning Notes 1 Introduction&url=http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html"
+        <a  href="https://twitter.com/intent/tweet?text=Robotics Notes 2&url=http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Twitter" >
             <i class="fa fa-twitter share-button"> twitter</i>
         </a>
 
-        <a  href="https://plus.google.com/share?url=http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html"
+        <a  href="https://plus.google.com/share?url=http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Google+" >
             <i class="fa fa-google-plus share-button"> google</i>
         </a>
 
-        <a  href="https://www.pinterest.com/pin/create/button/?url=http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html"
+        <a  href="https://www.pinterest.com/pin/create/button/?url=http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Pinterest" >
             <i class="fa fa-pinterest-p share-button"> pinterest</i>
         </a>
 
-        <a  href="https://www.tumblr.com/share/link?url=http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html"
+        <a  href="https://www.tumblr.com/share/link?url=http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Tumblr" >
             <i class="fa fa-tumblr share-button"> tumblr</i>
         </a>
 
-        <a  href="http://www.reddit.com/submit?url=http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html"
+        <a  href="http://www.reddit.com/submit?url=http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Reddit" >
             <i class="fa fa-reddit-alien share-button"> reddit</i>
         </a>
 
-        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html&title=Statistic Machine Learning Notes 1 Introduction&summary=&source=焦点的动力炉 | Jiao Dian's Power Plant"
+        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html&title=Robotics Notes 2&summary=&source=焦点的动力炉 | Jiao Dian's Power Plant"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on LinkedIn" >
             <i class="fa fa-linkedin share-button"> linkedin</i>
         </a>
 
-        <a  href="mailto:?subject=Statistic Machine Learning Notes 1 Introduction&amp;body=Check out this site http://localhost:4000/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html"
+        <a  href="mailto:?subject=Robotics Notes 2&amp;body=Check out this site http://localhost:4000/notes/robotics/2022/08/02/Robotics-notes.html"
             title="Share via Email" >
             <i class="fa fa-envelope share-button"> email</i>
         </a>
     </div>
 
 </div>
-  </div><a class="u-url" href="/notes/statistic%20mchine%20learning/2021/02/22/SML-notes.html" hidden></a>
+  </div><a class="u-url" href="/notes/robotics/2022/08/02/Robotics-notes.html" hidden></a>
 </article>
 
       </div>
