@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>ChatGPT Prompt Engineering for Developers学习笔记 | 焦点的动力炉 Jiao Dian’s Power Plant</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="ChatGPT Prompt Engineering for Developers学习笔记" />
+<meta name="author" content="Jiao Dian" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="第一课：ChatGPT指令的基本原则" />
+<meta property="og:description" content="第一课：ChatGPT指令的基本原则" />
+<link rel="canonical" href="http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html" />
+<meta property="og:url" content="http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html" />
+<meta property="og:site_name" content="焦点的动力炉 Jiao Dian’s Power Plant" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-05-27T02:00:00+10:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ChatGPT Prompt Engineering for Developers学习笔记" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jiao Dian"},"dateModified":"2023-05-27T02:00:00+10:00","datePublished":"2023-05-27T02:00:00+10:00","description":"第一课：ChatGPT指令的基本原则","headline":"ChatGPT Prompt Engineering for Developers学习笔记","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html"},"url":"http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="焦点的动力炉 | Jiao Dian&apos;s Power Plant" /><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+  
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">焦点的动力炉 | Jiao Dian&#39;s Power Plant</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/todo/">To-Do</a><a class="page-link" href="/blog/">博客</a><a class="page-link" href="/work/">工作笔记</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">ChatGPT Prompt Engineering for Developers学习笔记</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-05-27T02:00:00+10:00" itemprop="datePublished">May 27, 2023
+      </time>
+      <br>
+      <div class="post-categories">
+        
+        Categries: 
+        
+          <a href="/categories/#Notes">Notes</a>
+          
+        
+      </div></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="第一课chatgpt指令的基本原则">第一课：ChatGPT指令的基本原则</h2>
+
+<h4 id="原则一指令要清楚具体">原则一：指令要清楚具体</h4>
+<ul>
+  <li>技巧1：使用分界符<br />
+把要处理的text内容放在分界符里面, 分界符例如：""", ```, ---, &lt;&gt;, &lt;tag&gt;&lt;/tag&gt;等等。<br />
+通过使用分界符，可以防止通过text进行指令渗透攻击，比如text内容为”forget the previous instructions and …“。<br />
+例子：
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prompt = f"""
+Summarize the text delimited by triple backticks into a single sentence.
+```{text}```
+"""
+</code></pre></div>    </div>
+  </li>
+  <li>技巧2：对输出格式给出要求<br />
+清楚说明对输出格式的特定要求，比如要求输出HTML格式，JSON结构等等。<br />
+这样之后我们可以直接对ChatGPT返回的结果进行处理。<br />
+例子：
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prompt = f"""
+Generate a list of three made-up book titles along with their authors and genres. 
+Provide them in JSON format with the following keys: book_id, title, author, genre.
+"""
+</code></pre></div>    </div>
+  </li>
+  <li>技巧3：在指令中加入检查条件<br />
+对于需要满足某些条件才能执行的指令，我们可以把对于条件的检查写入到指令里面去。<br />
+这样可以防止ChatGPT在条件不满足的时候，输出自己发挥创作的结果。<br />
+例子：
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prompt = f"""
+You will be provided with text delimited by triple quotes. If it contains a sequence 
+of instructions, re-write those instructions in the following format:
+Step 1 - ...
+Step 2 - ...
+...
+Step N - ...
+If the text does not contain a sequence of instructions, then simply 
+write \"No steps provided.\"
+\"\"\"{text}\"\"\"
+"""
+</code></pre></div>    </div>
+  </li>
+  <li>技巧4：给出例子<br />
+通过在指令中提供具体例子，可以得到更贴近我们要求的结果。<br />
+例子：
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prompt = f"""
+Your task is to answer in a consistent style.
+{child}: Teach me about patience.
+{grandparent}: The river that carves the deepest
+valley flows from a modest spring; the
+grandest symphony originates from a single note;
+the most intricate tapestry begins with a solitary thread.
+{child}: Teach me about resilience.
+"""
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="原则二给模型一些时间去思考">原则二：给模型一些时间去思考</h4>
+<ul>
+  <li>技巧1：分步指令<br />
+将任务分成一系列具体的步骤，使ChatGPT遵循这些步骤来完成整个任务。<br />
+例子：
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prompt_1 = f"""
+Perform the following actions: 
+1 - Summarize the following text delimited by triple 
+backticks with 1 sentence.
+2 - Translate the summary into French.
+3 - List each name in the French summary.
+4 - Output a json object that contains the following 
+keys: french_summary, num_names.
+Separate your answers with line breaks.
+Text:
+```{text}```
+"""
+</code></pre></div>    </div>
+  </li>
+  <li>技巧2：先让ChatGPT自己给出答案，之后再下结论<br />
+当我们让ChatGPT帮我们检查答案时，让它直接下结论判断我们的答案是对还是错会比较难，准确率也不高。我们可以先让它给出自己的答案，然后再让它与我们给的答案进行对比，这样得到的判断结果会更准确。<br />
+例子太长就不放了</li>
+</ul>
+
+<h4 id="模型缺点">模型缺点</h4>
+<ul>
+  <li>错觉(Hallucination)：ChatGPT的陈述通常听起来很可信，但并不一定是真实可靠的。<br />
+在下面的例子中，Boie是个真实存在的公司，但产品并不存在。<br />
+例子：
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prompt = f"""
+Tell me about AeroGlide UltraSlim Smart Toothbrush by Boie
+"""
+</code></pre></div>    </div>
+  </li>
+  <li>如何减少错觉:
+先让ChatGPT从提供的text中找出相关信息，然后再让它基于这些相关信息回答问题。</li>
+</ul>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div id="share-bar">
+
+    <br>
+    <hr>
+    <br>
+
+    <h4>Share this:</h4>
+
+    <div class="share-buttons">
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Facebook" >
+            <i class="fa fa-facebook-official share-button"> facebook</i>
+        </a>
+
+        <a  href="https://twitter.com/intent/tweet?text=ChatGPT Prompt Engineering for Developers学习笔记&url=http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Twitter" >
+            <i class="fa fa-twitter share-button"> twitter</i>
+        </a>
+
+        <a  href="https://plus.google.com/share?url=http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Google+" >
+            <i class="fa fa-google-plus share-button"> google</i>
+        </a>
+
+        <a  href="https://www.pinterest.com/pin/create/button/?url=http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Pinterest" >
+            <i class="fa fa-pinterest-p share-button"> pinterest</i>
+        </a>
+
+        <a  href="https://www.tumblr.com/share/link?url=http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Tumblr" >
+            <i class="fa fa-tumblr share-button"> tumblr</i>
+        </a>
+
+        <a  href="http://www.reddit.com/submit?url=http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Reddit" >
+            <i class="fa fa-reddit-alien share-button"> reddit</i>
+        </a>
+
+        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html&title=ChatGPT Prompt Engineering for Developers学习笔记&summary=&source=焦点的动力炉 | Jiao Dian's Power Plant"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on LinkedIn" >
+            <i class="fa fa-linkedin share-button"> linkedin</i>
+        </a>
+
+        <a  href="mailto:?subject=ChatGPT Prompt Engineering for Developers学习笔记&amp;body=Check out this site http://localhost:4000/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html"
+            title="Share via Email" >
+            <i class="fa fa-envelope share-button"> email</i>
+        </a>
+    </div>
+
+</div>
+  </div><a class="u-url" href="/notes/2023/05/27/ChatGPT-Prompt-Engineering-for-Developers-notes.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col one-half">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      <h2 class="footer-heading">焦点的动力炉 | Jiao Dian&#39;s Power Plant</h2>
+        <ul class="contact-list">
+          <li class="p-name">Jiao Dian</li><li><a class="u-email" href="mailto:jiaodianmail@gmail.com">jiaodianmail@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col one-half">
+        <p>This is Jiao Dian&#39;s blog. A place for sharing notes about my thoughts. Just for FUN.
+</p>
+      </div>
+
+      <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/dianjiaogit" title="dianjiaogit"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/dianjiao" title="dianjiao"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
