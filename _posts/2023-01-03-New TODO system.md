@@ -2,7 +2,7 @@
 layout: post
 title:  新年新气象！新的Todo系统
 date:   2023-1-3 21:25:00 +1100
-categories: notes
+categories: Notes
 ---
 
 > 2023年1月3日，星期六，晚上9点25分。新的一年新的开始，新的Todo系统。
